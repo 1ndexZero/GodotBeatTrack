@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build.bat",
+            "type": "shell",
+            "command": "cmd /c build.bat",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "options": {
+                "env": {
+                    "BUILD_NO_PAUSE": "1"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+# ===== 编译产物 =====
+*.obj
+*.o
+*.lib
+*.exp
+*.dll
+*.pdb
+*.ilk
+~*
+
+# ===== Visual Studio =====
+.vs/
+.VSCodeCounter/
+x64/
+*.user
+
+# ===== SCons / Python =====
+.sconsign.dblite
+__pycache__/
+*.pyc
+
+# ===== Godot 演示项目 =====
+demo/
+
+# ===== 独立管理的仓库 =====
+godot-cpp/
+Godot Beat Track/
