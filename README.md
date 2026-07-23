@@ -59,4 +59,4 @@ func _ready() -> void:
 - `SpeedEventList`: speed change list; converts between seconds and displacement. `get_speed(secs)` returns the speed at a time.
 - `NoteTrack`: note track combining the two lists above. Add data via `add_note` / `add_bpm` / `add_speed`; note displacements update automatically when events change.
 - `NoteKey`: a single note with `units` (time position), `displacement` (spatial position) and custom `properties`.
-- `BpmEvent` / `SpeedEvent`: single BPM / speed event; construct with `create(...)` and add via `add_bpm_event` / `add_speed_event`.
+- `BpmEvent` / `SpeedEvent`: single BPM / speed event; construct with `create(...)` and add via `add_event`.

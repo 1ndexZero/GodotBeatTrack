@@ -59,4 +59,4 @@ func _ready() -> void:
 - `SpeedEventList`：变速事件列表，负责秒 ↔ 位移（displacement）换算。`get_speed(secs)` 查询指定秒数的速度。
 - `NoteTrack`：音符轨道，组合上述两个列表。通过 `add_note` / `add_bpm` / `add_speed` 添加数据，事件变更后自动更新音符位移。
 - `NoteKey`：单个音符，包含 `units`（时间位置）、`displacement`（空间位置）与自定义 `properties`。
-- `BpmEvent` / `SpeedEvent`：单个 BPM / 变速事件，可用 `create(...)` 构造后经 `add_bpm_event` / `add_speed_event` 加入。
+- `BpmEvent` / `SpeedEvent`：单个 BPM / 变速事件，可用 `create(...)` 构造后经 `add_event` 加入。
