@@ -41,12 +41,12 @@ func _ready() -> void:
 
 	# 6. Query
 	#    get_bpm(units) -> BPM at the given units
-	print(track.bpm_events.get_bpm(32))    # 120.0
-	print(track.bpm_events.get_bpm(96))    # 150.0
+	print(track.get_bpm_events().get_bpm(32))    # 120.0
+	print(track.get_bpm_events().get_bpm(96))    # 150.0
 
 	#    get_speed(secs) -> scroll speed at the given seconds
-	var secs := bpm_events.get_secs(32)
-	print(track.speed_events.get_speed(secs))  # 100.0
+	var secs := get_bpm_events().get_secs(32)
+	print(track.get_speed_events().get_speed(secs))  # 100.0
 
 	# Notes are ordered by units; access by index or units
 	print(track.size())                      # 3

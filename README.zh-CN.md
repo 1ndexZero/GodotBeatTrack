@@ -41,12 +41,12 @@ func _ready() -> void:
 
 	# 6. 查询
 	#    get_bpm(units) -> 该位置的BPM
-	print(track.bpm_events.get_bpm(32))    # 120.0
-	print(track.bpm_events.get_bpm(96))    # 150.0
+	print(track.get_bpm_events().get_bpm(32))    # 120.0
+	print(track.get_bpm_events().get_bpm(96))    # 150.0
 
 	#    get_speed(secs) -> 该秒数的滚动速度
-	var secs := bpm_events.get_secs(32)
-	print(track.speed_events.get_speed(secs))  # 100.0
+	var secs := get_bpm_events().get_secs(32)
+	print(track.get_speed_events().get_speed(secs))  # 100.0
 
 	# 音符按units有序，可按下标或units访问
 	print(track.size())                      # 3
