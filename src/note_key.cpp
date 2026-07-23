@@ -10,6 +10,10 @@ void NoteKey::_bind_methods() {
 
 	ClassDB::bind_method(D_METHOD("get_units"), &NoteKey::get_units);
 	ClassDB::bind_method(D_METHOD("get_displacement"), &NoteKey::get_displacement);
+	
+    ClassDB::bind_method(D_METHOD("set_properties", "value"), &NoteKey::set_properties);
+    ClassDB::bind_method(D_METHOD("get_properties"), &NoteKey::get_properties);
+    ADD_PROPERTY(PropertyInfo(Variant::DICTIONARY, "properties"), "set_properties", "get_properties");
 }
 
 Ref<NoteKey> NoteKey::create(int p_units) {

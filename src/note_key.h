@@ -17,9 +17,12 @@ public:
 
     int units;
     double displacement;   
+    Dictionary properties;
 
 	int get_units() const { return units; }
 	double get_displacement() const { return displacement; }
+    Dictionary get_properties() const { return properties; }
+    void set_properties(const Dictionary &p_value) { properties = p_value; }
 };
 
 } // namespace godot

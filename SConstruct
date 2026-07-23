@@ -24,7 +24,7 @@ lib_filename = "{}beat_track{}{}".format(env.subst('$SHLIBPREFIX'), env["suffix"
 
 # Creates a SCons target for the path with our sources.
 library = env.SharedLibrary(
-    "demo/addons/beat_track/bin/{}".format(lib_filename),
+    "project/addons/beat_track/bin/{}".format(lib_filename),
     source=sources,
 )
 

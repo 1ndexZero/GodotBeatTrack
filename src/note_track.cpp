@@ -23,22 +23,19 @@ void NoteTrack::_bind_methods() {
     ClassDB::bind_method(D_METHOD("get_note_by_displacement", "displacement"), &NoteTrack::get_note_by_displacement);
     ClassDB::bind_method(D_METHOD("get_note_by_displacement_at", "index"), &NoteTrack::get_note_by_displacement_at);
 
+    ClassDB::bind_method(D_METHOD("get_bpm_events"), &NoteTrack::get_bpm_events);
+    ClassDB::bind_method(D_METHOD("get_speed_events"), &NoteTrack::get_speed_events);
+
     ClassDB::bind_method(D_METHOD("size"), &NoteTrack::size);
 
     ClassDB::bind_method(D_METHOD("add_bpm_event", "event"), &NoteTrack::add_bpm_event);
     ClassDB::bind_method(D_METHOD("remove_bpm_event", "event"), &NoteTrack::remove_bpm_event);
     ClassDB::bind_method(D_METHOD("remove_bpm_event_at", "index"), &NoteTrack::remove_bpm_event_at);
-    ClassDB::bind_method(D_METHOD("get_bpm_event_index", "units"), &NoteTrack::get_bpm_event_index);
-    ClassDB::bind_method(D_METHOD("get_bpm_event", "units"), &NoteTrack::get_bpm_event);
-    ClassDB::bind_method(D_METHOD("get_bpm_event_at", "index"), &NoteTrack::get_bpm_event_at);
     ClassDB::bind_method(D_METHOD("add_bpm", "units", "bpm"), &NoteTrack::add_bpm);
 
     ClassDB::bind_method(D_METHOD("add_speed_event", "event"), &NoteTrack::add_speed_event);
     ClassDB::bind_method(D_METHOD("remove_speed_event", "event"), &NoteTrack::remove_speed_event);
     ClassDB::bind_method(D_METHOD("remove_speed_event_at", "index"), &NoteTrack::remove_speed_event_at);
-    ClassDB::bind_method(D_METHOD("get_speed_event_index", "units"), &NoteTrack::get_speed_event_index);
-    ClassDB::bind_method(D_METHOD("get_speed_event", "units"), &NoteTrack::get_speed_event);
-    ClassDB::bind_method(D_METHOD("get_speed_event_at", "index"), &NoteTrack::get_speed_event_at);
     ClassDB::bind_method(D_METHOD("add_speed", "units_start", "units_end", "speed_start", "speed_end"), &NoteTrack::add_speed);
 
     ClassDB::bind_method(D_METHOD("update_displacements"), &NoteTrack::update_displacements);
@@ -241,18 +238,6 @@ void NoteTrack::remove_bpm_event_at(int p_index) {
     update_displacements();
 }
 
-int NoteTrack::get_bpm_event_index(double p_units) const {
-    return bpm_events->get_event_index(p_units);
-}
-
-Ref<BpmEvent> NoteTrack::get_bpm_event(double p_units) const {
-    return bpm_events->get_event(p_units);
-}
-
-Ref<BpmEvent> NoteTrack::get_bpm_event_at(int p_index) const {
-    return bpm_events->get_event_at(p_index);
-}
-
 void NoteTrack::add_bpm(int p_units, double p_bpm) {
     bpm_events->add_bpm(p_units, p_bpm);
     speed_events->update_displacements(0);
@@ -274,18 +259,6 @@ bool NoteTrack::remove_speed_event(Ref<SpeedEvent> p_event) {
 void NoteTrack::remove_speed_event_at(int p_index) {
     speed_events->remove_event_at(p_index);
     update_displacements();
-}
-
-int NoteTrack::get_speed_event_index(double p_units) const {
-    return speed_events->get_event_index(p_units);
-}
-
-Ref<SpeedEvent> NoteTrack::get_speed_event(double p_units) const {
-    return speed_events->get_event(p_units);
-}
-
-Ref<SpeedEvent> NoteTrack::get_speed_event_at(int p_index) const {
-    return speed_events->get_event_at(p_index);
 }
 
 void NoteTrack::add_speed(int p_units_start, int p_units_end, double p_speed_start, double p_speed_end) {

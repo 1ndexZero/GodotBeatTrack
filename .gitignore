@@ -25,3 +25,6 @@ demo/
 # ===== 独立管理的仓库 =====
 godot-cpp/
 Godot Beat Track/
+
+# ===== 代理说明文件 =====
+AGENTS.md

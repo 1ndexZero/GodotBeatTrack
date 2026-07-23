@@ -30,6 +30,9 @@ public:
     Ref<SpeedEventList> speed_events;
     bool sort_note_by_displacement;
 
+    Ref<BpmEventList> get_bpm_events() const { return bpm_events; }
+    Ref<SpeedEventList> get_speed_events() const { return speed_events; }
+
     void add_note(Ref<NoteKey> p_note);
     bool remove_note(Ref<NoteKey> p_note);
     void remove_note_at(int index);
@@ -47,17 +50,11 @@ public:
     void add_bpm_event(Ref<BpmEvent> p_event);
     bool remove_bpm_event(Ref<BpmEvent> p_event);
     void remove_bpm_event_at(int p_index);
-    int get_bpm_event_index(double p_units) const;
-    Ref<BpmEvent> get_bpm_event(double p_units) const;
-    Ref<BpmEvent> get_bpm_event_at(int p_index) const;
     void add_bpm(int p_units, double p_bpm);
 
     void add_speed_event(Ref<SpeedEvent> p_event);
     bool remove_speed_event(Ref<SpeedEvent> p_event);
     void remove_speed_event_at(int p_index);
-    int get_speed_event_index(double p_units) const;
-    Ref<SpeedEvent> get_speed_event(double p_units) const;
-    Ref<SpeedEvent> get_speed_event_at(int p_index) const;
     void add_speed(int p_units_start, int p_units_end, double p_speed_start, double p_speed_end);
 
     void update_displacements();
