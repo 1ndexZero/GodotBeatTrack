@@ -6,15 +6,6 @@ Godot 4 的节奏游戏音符轨道扩展（GDExtension / godot-cpp），提供 
 
 **需要 Godot 4.7 或更高版本。**
 
-## 构建
-
-```bash
-build.bat
-# 即 scons platform=windows target=template_debug
-```
-
-产物输出到 `demo/addons/beat_track/bin/`。
-
 ## 快速示例
 
 以下示例演示创建 `NoteTrack`，并在此基础上使用 `add_note`、`add_speed`、`add_bpm`、`get_speed`、`get_bpm`：

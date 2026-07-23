@@ -6,15 +6,6 @@ A rhythm-game note track extension for Godot 4 (GDExtension / godot-cpp), provid
 
 **Requires Godot 4.7 or later.**
 
-## Build
-
-```bash
-build.bat
-# i.e. scons platform=windows target=template_debug
-```
-
-Build artifacts are output to `demo/addons/beat_track/bin/`.
-
 ## Quick Example
 
 The following example shows how to create a `NoteTrack` and use `add_note`, `add_speed`, `add_bpm`, `get_speed`, `get_bpm` on top of it:
