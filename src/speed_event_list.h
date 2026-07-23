@@ -32,6 +32,7 @@ public:
     int get_event_index(double p_units) const;
     Ref<SpeedEvent> get_event(double p_units) const;
     Ref<SpeedEvent> get_event_at(int p_index) const;
+    int size() const { return _events.size(); }
 
     void add_speed(int p_units_start, int p_units_end, double p_speed_start, double p_speed_end);
     double get_speed(double p_secs) const;

@@ -35,6 +35,7 @@ public:
     int get_event_index(double p_units) const;
     Ref<BpmEvent> get_event(double p_units) const;
     Ref<BpmEvent> get_event_at(int p_index) const;
+    int size() const { return _events.size(); }
 
     void add_bpm(int p_units, double p_bpm);
     double get_bpm(double p_units) const;

@@ -15,6 +15,7 @@ class NoteTrack : public RefCounted {
 
 private:
     std::vector<Ref<NoteKey>> _notes;
+    std::vector<Ref<NoteKey>> _notes_sorted_by_displacement;
 
 protected:
 	static void _bind_methods();
@@ -22,17 +23,45 @@ protected:
 public:
     NoteTrack() = default;
     static Ref<NoteTrack> create(
-        Ref<BpmEventList> p_bpm_events, Ref<SpeedEventList> p_speed_events);
+        Ref<BpmEventList> p_bpm_events, Ref<SpeedEventList> p_speed_events,
+        bool p_sort_note_by_displacement = false);
 
     Ref<BpmEventList> bpm_events;
     Ref<SpeedEventList> speed_events;
+    bool sort_note_by_displacement;
 
     void add_note(Ref<NoteKey> p_note);
     bool remove_note(Ref<NoteKey> p_note);
     void remove_note_at(int index);
+    
     int get_note_index(double p_units) const;
     Ref<NoteKey> get_note(double p_units) const;
     Ref<NoteKey> get_note_at(int index) const;
+
+    int get_note_index_by_displacement(double p_displacement) const;
+    Ref<NoteKey> get_note_by_displacement(double p_displacement) const;
+    Ref<NoteKey> get_note_by_displacement_at(int p_index) const;
+
+    int size() const { return _notes.size(); }
+
+    void add_bpm_event(Ref<BpmEvent> p_event);
+    bool remove_bpm_event(Ref<BpmEvent> p_event);
+    void remove_bpm_event_at(int p_index);
+    int get_bpm_event_index(double p_units) const;
+    Ref<BpmEvent> get_bpm_event(double p_units) const;
+    Ref<BpmEvent> get_bpm_event_at(int p_index) const;
+    void add_bpm(int p_units, double p_bpm);
+
+    void add_speed_event(Ref<SpeedEvent> p_event);
+    bool remove_speed_event(Ref<SpeedEvent> p_event);
+    void remove_speed_event_at(int p_index);
+    int get_speed_event_index(double p_units) const;
+    Ref<SpeedEvent> get_speed_event(double p_units) const;
+    Ref<SpeedEvent> get_speed_event_at(int p_index) const;
+    void add_speed(int p_units_start, int p_units_end, double p_speed_start, double p_speed_end);
+
+    void update_displacements();
+        
 };
 
 } // namespace godot

@@ -15,12 +15,15 @@ void SpeedEventList::_bind_methods() {
     ClassDB::bind_method(D_METHOD("get_event_index", "units"), &SpeedEventList::get_event_index);
     ClassDB::bind_method(D_METHOD("get_event", "units"), &SpeedEventList::get_event);
     ClassDB::bind_method(D_METHOD("get_event_at", "index"), &SpeedEventList::get_event_at);
+    ClassDB::bind_method(D_METHOD("size"), &SpeedEventList::size);
 
     ClassDB::bind_method(D_METHOD("add_speed", "units_start", "units_end", "speed_start", "speed_end"), &SpeedEventList::add_speed);
     ClassDB::bind_method(D_METHOD("get_speed", "secs"), &SpeedEventList::get_speed);
 
     ClassDB::bind_method(D_METHOD("get_displacement", "secs"), &SpeedEventList::get_displacement);
     ClassDB::bind_method(D_METHOD("get_secs_by_displacement", "displacement"), &SpeedEventList::get_secs_by_displacement);
+
+    ClassDB::bind_method(D_METHOD("update_displacements", "from"), &SpeedEventList::update_displacements);
 }
 
 Ref<SpeedEventList> SpeedEventList::create(

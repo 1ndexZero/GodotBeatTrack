@@ -20,6 +20,7 @@ void BpmEventList::_bind_methods() {
     ClassDB::bind_method(D_METHOD("get_event_index", "units"), &BpmEventList::get_event_index);
     ClassDB::bind_method(D_METHOD("get_event", "units"), &BpmEventList::get_event);
     ClassDB::bind_method(D_METHOD("get_event_at", "index"), &BpmEventList::get_event_at);
+    ClassDB::bind_method(D_METHOD("size"), &BpmEventList::size);
     
     ClassDB::bind_method(D_METHOD("add_bpm", "units", "bpm"), &BpmEventList::add_bpm);
     ClassDB::bind_method(D_METHOD("get_bpm", "units"), &BpmEventList::get_bpm);
@@ -30,6 +31,8 @@ void BpmEventList::_bind_methods() {
 
     ClassDB::bind_method(D_METHOD("to_units", "beats"), &BpmEventList::to_units);
     ClassDB::bind_method(D_METHOD("to_beats", "units"), &BpmEventList::to_beats);
+
+    ClassDB::bind_method(D_METHOD("update_secs", "from"), &BpmEventList::update_secs);
 }
 
 Ref<BpmEventList> BpmEventList::create(double p_init_bpm, int p_units_abeat) {
